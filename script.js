@@ -8,9 +8,10 @@ function newDestination() {
 
 var score = 0;
 
-var text = new PointText(new Point(10, 20));
-text.fillColor = 'black';
-
+var text = new PointText(new Point(10, 30));
+text.fillColor = 'red';
+text.fontFamily = 'Cursive',
+text.fontSize = 30,
 text.content = score;
 
 function points() {
@@ -48,7 +49,7 @@ var destination = newDestination();
 
 function onFrameBall(event) {
   var vector = destination - circ.position;
-  circ.position += vector / 13;
+  circ.position += vector / 8;
   circ.content = Math.random(vector.isZero);
   if (vector.length < 5) {
     destination = newDestination();
