@@ -21,7 +21,7 @@ function points() {
 function createCircle() {
   var c = new Path.Circle({
     center: Point.random() * view.size,
-    radius: 30,
+    radius: 40,
     fillColor: fillColor,
     strokeColor: 'black',
   });
@@ -49,7 +49,7 @@ var destination = newDestination();
 
 function onFrameBall(event) {
   var vector = destination - circ.position;
-  circ.position += vector / 8;
+  circ.position += vector / 10;
   circ.content = Math.random(vector.isZero);
   if (vector.length < 5) {
     destination = newDestination();
