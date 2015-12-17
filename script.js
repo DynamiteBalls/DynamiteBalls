@@ -1,12 +1,28 @@
 function onFrame(event) {
   onFrameBall(event);
+  onFrameCarre(event);
 };
 
-var circ = new Path.Circle({
-  center: view.center,
-  radius: 30,
-  fillColor: 'red'
+var carre = new Path.Rectangle({
+	point: [75, 75],
+	size: [500, 500],
+	strokeColor: 'black'
 });
+
+function onFrameCarre(event) {
+	carre.rotate(2);
+}
+
+var circ = new Path.Circle({
+      center: view.center,
+      radius: 30,
+      fillColor: '#2A79FF',
+      strokeColor:'black'
+});
+
+circ.onClick = function (event) {
+this.remove();
+}
 
 var destination = Point.random() * view.size;
 
@@ -16,16 +32,10 @@ function onFrameBall(event) {
   circ.content = Math.round(vector.isZero);
   if (vector.length < 5) {
     destination = Point.random() * view.size;
-  }
+    }
 };
 
-var shadow = new Path.Circle({
-  center: view.center,
-  radius: 8,
-  fillColor: 'white',
-  shadowColor: new Color(250, 250, 250),
-  shadowBlur: 20,
-  shadowOffset: new Point(5, 5)
-});
-
-shadow.opacity = 0.4;
+view.onFrameCadre = function(event) {
+       // Each frame, rotate the path by 3 degrees:
+       cadre.rotate(3);
+   }
